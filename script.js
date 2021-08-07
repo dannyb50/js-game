@@ -1,88 +1,115 @@
-const header = document.querySelector("#header");
-header.innerHTML = "So you want to join So Solid Crew?";
+const nameForm = document.querySelector("#name-form")
 
-const intro = document.querySelector("#intro");
-intro.innerHTML = "Start the timer. Rap the verse. If it takes you 21 seconds, you're in.";
+nameForm.addEventListener("submit", (event) => {
+    const name = document.querySelector("#name-input").value;
+    const header = document.querySelector("#question__header");
+    header.innerHTML = `Hello ${name}, would you like to join So Solid Crew?`;
+    event.preventDefault();
+    });
 
-const subHeader = document.querySelector("#sub-header");
+const intro = document.querySelector("#game__intro");
+intro.innerHTML = "Ok then. <br> Start the timer and rap the verse. <br> If it takes you 21.0 seconds, you're in.";
+
+const subHeader = document.querySelector("#game__sub-header");
 subHeader.innerHTML = "You've got 21 seconds to go.";
 
-// const result = document.querySelector("#result");
-// result.innerHTML = "";
-// result.style.display = "none";
-
-const verse = document.querySelector("#verse");
+const verse = document.querySelector("#game__verse");
 verse.innerHTML = "I got 21 seconds to flow <br> I got 21 seconds to go <br> 'Cause if you like me lemme know <br> Let me in da studio <br> I got 21 seconds before I got to go <br> Did you see me on the video 'oh no' <br> Did you see me on the video 'oh no' <br> So if you like me lemme know <br> Let me in da studio <br> I got 21 seconds before I got to go <br> Did you see me on the video 'oh no' <br> Did you see me on the video 'oh no' <br> So if you like me lemme know <br> Let me in da studio <br> I got 21 seconds before I gotta go"
 verse.style.display = "none";
 
-const button = document.querySelector("#button");
+const button = document.querySelector("#game__button");
 button.innerHTML = "start";
 
-const watch = document.querySelector("#stopwatch");
-let millisecond = 0;
+const watch = document.querySelector("#game__stopwatch");
+
+const time = document.querySelector("#game__time");
+
+let currentTime = 0;
+let trackerCount = 0;
+
 let timer;
 
-function timeStart(){
-    watch.style.color = "#ffc0cb";
-    clearInterval(timer);
-    timer = setInterval(() => {
-        millisecond += 10;
+function startTimer() {
+	timer = setInterval(() => {
+		currentTime++;
 
-        let dateTimer = new Date(millisecond);
+		let minutes = Math.floor(currentTime / 100 / 60);
+		let seconds = currentTime / 100 - minutes * 60;
+		let finalTime = `${minutes}:${seconds < 10 ? 0 : ""}${seconds.toFixed(1)}`;
+		time.innerHTML = minutes > 0 ? finalTime : seconds.toFixed(1);
+	}, 10);
+	button.innerHTML = "Stop";
+}
 
-        watch.innerHTML = 
-        ('0'+dateTimer.getUTCMinutes()).slice(-2) + ':' +
-        ('0'+dateTimer.getUTCSeconds()).slice(-2) + ':' +
-        ('0'+dateTimer.getUTCMilliseconds()).slice(-3,-1);
-      }, 10);
-    }
+function stopTimer() {
+	clearInterval(timer);
+	button.innerHTML = "Try again";
+}
 
-function timeStopped() {
-    watch.style.color = "red";
-    clearInterval(timer);
-    }
+function resetTimer() {
+	currentTime = 0;
+	currentTime = currentTime.toFixed(1);
+	time.innerHTML = currentTime;
+	button.innerHTML = "Start";
+}
 
-function timeReset(){
-    setInterval(timer)
-    millisecound = 0;
-    watch.innerHTML = "00:00:00";
-    }
 
 button.addEventListener("click", (event) => {
-    if (event.target.classList.contains("ready")) {
-        timeStart();
-        event.target.classList.remove("ready");
-        event.target.classList.add("running");
-        button.innerHTML = "stop";
-        watch.style.display="none";
-        verse.style.display="block";
-    } else if (event.target.classList.contains("running")) {
-        timeStopped();
-        event.target.classList.remove("running");
-        event.target.classList.add("stopped");
-        button.innerHTML = "reset";
-        watch.style.display="block";
-        verse.style.display="none";
-        // subHeader.style.display="none";
-        // result.style.display="block";
-        if (watch.innerHTML === "00:20:90" || "00:20:91" || "00:20:92" || "00:20:93" || "00:20:94" || "00:20:95" || "00:20:96" || "00:20:97" || "00:20:98" || "00:20:99" || "00:21:00" || "00:21:01" || "00:21:02" || "00:21:03" || "00:21:04" || "00:21:05" || "00:21:06" || "00:21:07" || "00:21:08" || "00:21:09" || "00:21:10") {
-            subHeader.innerHTML = "You are now in So Solid Crew."
-        } else {
-            subHeader.innerHTML = "You can be part of So Weak Crew."
-        }
-    } else {
-        timeReset();
-        event.target.classList.remove("stopped");
-        event.target.classList.add("ready");
-        button.innerHTML = "start";
-        // subHeader.style.display="block";
-        // result.style.display="none";
-        subHeader.innerHTML = "You've got 21 seconds to go.";
-    }
-})
 
-// if (watch.innerHTML === "00:20:90" || "00:20:91" || "00:20:92" || "00:20:93" || "00:20:94" || "00:20:95" || "00:20:96" || "00:20:97" || "00:20:98" || "00:20:99" || "00:21:00" || "00:21:01" || "00:21:02" || "00:21:03" || "00:21:04" || "00:21:05" || "00:21:06" || "00:21:07" || "00:21:08" || "00:21:09" || "00:21:10") {
-//     subHeader.innerHTML = "You are now in So Solid Crew."
-// } else {
-//     subHeader.innerHTML = "You can be part of So Weak Crew."
-// }
+  if (event.target.classList.contains("ready")) {
+    startTimer();
+    event.target.classList.remove("ready");
+    event.target.classList.add("running");
+    watch.style.display="none";
+    verse.style.display="block";
+  }
+
+  else if (event.target.classList.contains("running")) {
+    stopTimer();
+    event.target.classList.remove("running");
+    event.target.classList.add("stopped");
+    watch.style.display="block";
+    verse.style.display="none";
+
+    console.log(time.innerHTML);
+
+    // Coaches - Why do I have to declare name again here as well as on line 4?
+    const name = document.querySelector("#name-input").value;
+
+    if (time.innerHTML === "21.0") {
+        subHeader.innerHTML = `Congratulations ${name}! You are the newest member of So Solid Crew!`;
+    } else if (time.innerHTML === "20.6" ||
+      time.innerHTML === "20.7" ||
+      time.innerHTML === "20.8" ||
+      time.innerHTML === "20.9" ||
+      time.innerHTML === "21.1" ||
+      time.innerHTML === "21.2" ||
+      time.innerHTML === "21.3" ||
+      time.innerHTML === "21.4") {
+        subHeader.innerHTML = `Unlucky ${name}. That was close, but not close enough.`
+    }
+    else if (time.innerHTML === "20.1" ||
+      time.innerHTML === "20.2" ||
+      time.innerHTML === "20.3" ||
+      time.innerHTML === "20.4" ||
+      time.innerHTML === "20.5" ||
+      time.innerHTML === "21.5" ||
+      time.innerHTML === "21.6" ||
+      time.innerHTML === "21.7" ||
+      time.innerHTML === "21.8" ||
+      time.innerHTML === "21.9") {
+        subHeader.innerHTML = `More like So Weak Crew.`
+    } else {
+      subHeader.innerHTML = `Well, that was embarrassing.`
+    }
+  }
+
+  else if (event.target.classList.contains("stopped")) {
+    resetTimer();
+    event.target.classList.remove("stopped");
+    event.target.classList.add("ready");
+    watch.style.display="block";
+    verse.style.display="none";
+    subHeader.innerHTML = "You've got 21 seconds to go.";
+  }
+});
