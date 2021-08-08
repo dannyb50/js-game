@@ -1,0 +1,17 @@
+#welcome {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#name-form {
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  background-color: #121212;
+  color: #fefefe;
+}
