@@ -18,11 +18,15 @@ const handleClick = (event) => {
   const name = document.querySelector("#name-input").value;
   const header = document.querySelector("#question__header");
   const proceedToGame = document.querySelector("#question__button");
-  proceedToGame.innerHTML = "Yes please";
-  header.innerHTML = `Hello ${name}, would you like to join <span class="brand"> So Solid Crew </span>?`;
-  event.preventDefault();
-
-}
+  if (name === "") {
+    alert("Please enter your name")
+    };
+  if (name) {
+    proceedToGame.innerHTML = "Yes please";
+    header.innerHTML = `Hello ${name}, would you like to join <span class="brand"> So Solid Crew </span>?`;
+    event.preventDefault();
+    }
+  }
 
 const intro = document.querySelector("#game__intro");
 intro.innerHTML = "Ok then. <br><br> Start the timer and rap the verse. <br> If it takes you 21.0 seconds, you're in.";
