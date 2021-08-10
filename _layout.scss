@@ -4,22 +4,97 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &__header {
+        font-size: 18px;
+    }
 }   
 
 #name-form {
     display: flex;
     flex-direction: column;
-//     width: 100%;
-//     justify-content: center;
-//     align-items: center;
-//     margin-top: 5vh;
 }
 
 #question { 
-    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__header {
+        font-size: 18px;
+    }
 }
 
-#game {
-    
+#game { 
+    height: 100vh;
+
+    &__intro {
+        font-size: 18px;
+        padding-top: 3%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__sub-header {
+        font-size: 18px;
+        padding-bottom: 3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #9ca5a6;
+    }
+
+    &__play {
+        height: 50%;
+
+        &__verse {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 0;
+            color: #fefefe;
+        }
+
+        &__stopwatch {
+        
+                &__time {
+                margin-top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 150px;
+                color: #fefefe
+            }
+        }
+    }
 }
 
+
+
+@media screen and (min-width: 768px) {
+    #welcome__header {
+        font-size: 30px;
+    }
+    #question__header {
+        font-size: 30px;
+    }
+    #game__intro {
+        font-size: 30px;
+    }
+    #game__sub-header {
+        font-size: 30px;
+    }
+    #game__play__verse {
+        font-size: 20px;
+    }
+    #game__play__stopwatch__time {
+        font-size: 200px;
+    }
+}

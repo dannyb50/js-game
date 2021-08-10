@@ -13,25 +13,29 @@
             <h1 id="welcome__header">Welcome. Who are you?</h1>
             <form action="" id="name-form">
                 <input type="text" id="name-input">
-                <button><a href="#question">Submit</a></button>
-            </form>
+                <a id="name-submit" href="#question" onclick="handleClick()">Submit</a>
+            </form>    
         </section>
 
         <section id="question">
-            <h1 id="question__header"></h1>
-            <button id="question__button">Yes</button>
+            <h1 id="question__header">Please enter your name above</h1>
+            <a class="button" id="question__button" href="#game"></a>
         </section>
 
         <section id="game">
             <h2 id="game__intro"></h2>
             <h2 id="game__sub-header"></h2>
-            <p id="game__verse"></p>
+            <div id="game__play">
+                <p id="game__play__verse"></p>
 
-            <div id="game__stopwatch">
-                <h1 id="game__time">0.0</h1>
+                <div id="game__play__stopwatch">
+                    <h1 id="game__play__stopwatch__time">0.0</h1>
+                </div>
+                <button id="game__play__button" class="ready"></button>
             </div>
 
-            <button id="game__button" class="ready"></button>
+            <!-- <button id="game__button" class="ready"></button> -->
+            
         </section>
     </main>
     <script src="script.js"></script>

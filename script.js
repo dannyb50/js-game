@@ -1,28 +1,45 @@
-const nameForm = document.querySelector("#name-form")
+// const submit = document.querySelector("#name-submit");
 
-nameForm.addEventListener("submit", (event) => {
-    const name = document.querySelector("#name-input").value;
-    const header = document.querySelector("#question__header");
-    header.innerHTML = `Hello ${name}, would you like to join So Solid Crew?`;
-    event.preventDefault();
-    });
+// submit.addEventListener("click", (event) => {
+//     const name = document.querySelector("#name-input").value;
+// // //     const header = document.querySelector("#question__header");
+// // //     header.innerHTML = `Hello ${name}, would you like to join <span class="brand"> So Solid Crew </span>?`;
+// // //     event.preventDefault();
+//     if (name === "") {
+//       alert("Please enter your name")
+//     };
+// });
+
+// COACHES QUESTION - WHEN USING THE EVENT LISTENER ABOVE, 
+// THE <A> HREF WOULDN'T WORK, SO HAD TO USE THE METHOD BELOW. 
+// WHY IS THAT?
+
+const handleClick = (event) => {
+  const name = document.querySelector("#name-input").value;
+  const header = document.querySelector("#question__header");
+  const proceedToGame = document.querySelector("#question__button");
+  proceedToGame.innerHTML = "Yes please";
+  header.innerHTML = `Hello ${name}, would you like to join <span class="brand"> So Solid Crew </span>?`;
+  event.preventDefault();
+
+}
 
 const intro = document.querySelector("#game__intro");
-intro.innerHTML = "Ok then. <br> Start the timer and rap the verse. <br> If it takes you 21.0 seconds, you're in.";
+intro.innerHTML = "Ok then. <br><br> Start the timer and rap the verse. <br> If it takes you 21.0 seconds, you're in.";
 
 const subHeader = document.querySelector("#game__sub-header");
 subHeader.innerHTML = "You've got 21 seconds to go.";
 
-const verse = document.querySelector("#game__verse");
+const verse = document.querySelector("#game__play__verse");
 verse.innerHTML = "I got 21 seconds to flow <br> I got 21 seconds to go <br> 'Cause if you like me lemme know <br> Let me in da studio <br> I got 21 seconds before I got to go <br> Did you see me on the video 'oh no' <br> Did you see me on the video 'oh no' <br> So if you like me lemme know <br> Let me in da studio <br> I got 21 seconds before I got to go <br> Did you see me on the video 'oh no' <br> Did you see me on the video 'oh no' <br> So if you like me lemme know <br> Let me in da studio <br> I got 21 seconds before I gotta go"
 verse.style.display = "none";
 
-const button = document.querySelector("#game__button");
-button.innerHTML = "start";
+const button = document.querySelector("#game__play__button");
+button.innerHTML = "Start";
 
-const watch = document.querySelector("#game__stopwatch");
+const watch = document.querySelector("#game__play__stopwatch");
 
-const time = document.querySelector("#game__time");
+const time = document.querySelector("#game__play__stopwatch__time");
 
 let currentTime = 0;
 let trackerCount = 0;
@@ -53,7 +70,6 @@ function resetTimer() {
 	button.innerHTML = "Start";
 }
 
-
 button.addEventListener("click", (event) => {
 
   if (event.target.classList.contains("ready")) {
@@ -73,11 +89,10 @@ button.addEventListener("click", (event) => {
 
     console.log(time.innerHTML);
 
-    // Coaches - Why do I have to declare name again here as well as on line 4?
     const name = document.querySelector("#name-input").value;
 
     if (time.innerHTML === "21.0") {
-        subHeader.innerHTML = `Congratulations ${name}! You are the newest member of So Solid Crew!`;
+        subHeader.innerHTML = `<span class="brand">Congratulations ${name}! You are the newest member of So Solid Crew!</span>`;
     } else if (time.innerHTML === "20.6" ||
       time.innerHTML === "20.7" ||
       time.innerHTML === "20.8" ||
@@ -86,7 +101,7 @@ button.addEventListener("click", (event) => {
       time.innerHTML === "21.2" ||
       time.innerHTML === "21.3" ||
       time.innerHTML === "21.4") {
-        subHeader.innerHTML = `Unlucky ${name}. That was close, but not close enough.`
+        subHeader.innerHTML = `<span class="brand">Unlucky ${name}. That was close, but not close enough.</span>`
     }
     else if (time.innerHTML === "20.1" ||
       time.innerHTML === "20.2" ||
@@ -98,9 +113,9 @@ button.addEventListener("click", (event) => {
       time.innerHTML === "21.7" ||
       time.innerHTML === "21.8" ||
       time.innerHTML === "21.9") {
-        subHeader.innerHTML = `More like So Weak Crew.`
+        subHeader.innerHTML = `<span class="brand">More like So Weak Crew.</span>`
     } else {
-      subHeader.innerHTML = `Well, that was embarrassing.`
+      subHeader.innerHTML = `<span class="brand">Well, that was embarrassing.</span>`
     }
   }
 

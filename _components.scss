@@ -1,0 +1,53 @@
+
+a {
+    color: #A9DCF3;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #FED41D;
+}
+
+a:active {
+    color: #9CA5A6;
+}
+
+#name-input {
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #FEFEFE;
+    border-radius: 5px;
+}
+
+#game__play__button {
+    color: #A9DCF3;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    height: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    #name-input {
+        font-size: 22px;
+    }
+
+    a {
+        font-size: 22px;
+    }
+
+    #game__play__button {
+        font-size: 30px;
+        height: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}

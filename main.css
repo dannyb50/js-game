@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;500&family=Permanent+Marker&display=swap");
+* {
+  background-color: #121212;
+  color: #9ca5a6;
+  font-family: "Kanit", sans-serif;
+}
+
+.brand {
+  color: #FED41D;
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.1em;
+}
+
 #welcome {
   height: 100vh;
   display: flex;
@@ -5,13 +19,141 @@
   justify-content: center;
   align-items: center;
 }
+#welcome__header {
+  font-size: 18px;
+}
 
 #name-form {
   display: flex;
   flex-direction: column;
 }
 
-* {
-  background-color: #121212;
+#question {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#question__header {
+  font-size: 18px;
+}
+
+#game {
+  height: 100vh;
+}
+#game__intro {
+  font-size: 18px;
+  padding-top: 3%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#game__sub-header {
+  font-size: 18px;
+  padding-bottom: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9ca5a6;
+}
+#game__play {
+  height: 50%;
+}
+#game__play__verse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 0;
   color: #fefefe;
+}
+#game__play__stopwatch__time {
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px;
+  color: #fefefe;
+}
+
+@media screen and (min-width: 768px) {
+  #welcome__header {
+    font-size: 30px;
+  }
+
+  #question__header {
+    font-size: 30px;
+  }
+
+  #game__intro {
+    font-size: 30px;
+  }
+
+  #game__sub-header {
+    font-size: 30px;
+  }
+
+  #game__play__verse {
+    font-size: 20px;
+  }
+
+  #game__play__stopwatch__time {
+    font-size: 200px;
+  }
+}
+a {
+  color: #A9DCF3;
+  text-decoration: none;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #FED41D;
+}
+
+a:active {
+  color: #9CA5A6;
+}
+
+#name-input {
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #FEFEFE;
+  border-radius: 5px;
+}
+
+#game__play__button {
+  color: #A9DCF3;
+  font-size: 22px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  height: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  #name-input {
+    font-size: 22px;
+  }
+
+  a {
+    font-size: 22px;
+  }
+
+  #game__play__button {
+    font-size: 30px;
+    height: 10px;
+    width: 100%;
+    text-align: center;
+  }
 }
