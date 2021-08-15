@@ -14,6 +14,8 @@
 // THE <A> HREF WOULDN'T WORK, SO HAD TO USE THE METHOD BELOW. 
 // WHY IS THAT?
 
+// function to add player name and ask a question when entered
+
 const handleClick = (event) => {
   const name = document.querySelector("#name-input").value;
   const header = document.querySelector("#question__header");
@@ -45,10 +47,14 @@ const watch = document.querySelector("#game__play__stopwatch");
 
 const time = document.querySelector("#game__play__stopwatch__time");
 
+// stopwatch
+
 let currentTime = 0;
 let trackerCount = 0;
 
 let timer;
+
+// start watch
 
 function startTimer() {
 	timer = setInterval(() => {
@@ -62,10 +68,14 @@ function startTimer() {
 	button.innerHTML = "Stop";
 }
 
+// stop the watch
+
 function stopTimer() {
 	clearInterval(timer);
 	button.innerHTML = "Try again";
 }
+
+// reset the watch
 
 function resetTimer() {
 	currentTime = 0;
@@ -73,6 +83,8 @@ function resetTimer() {
 	time.innerHTML = currentTime;
 	button.innerHTML = "Start";
 }
+
+// function for when to displau the verse or timer, and start/stop/reset button display
 
 button.addEventListener("click", (event) => {
 
@@ -92,6 +104,8 @@ button.addEventListener("click", (event) => {
     verse.style.display="none";
 
     console.log(time.innerHTML);
+
+    // result function for what to display depending on stopped time
 
     const name = document.querySelector("#name-input").value;
 
