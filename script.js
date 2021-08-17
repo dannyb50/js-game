@@ -24,7 +24,7 @@ const handleClick = (event) => {
     alert("Please enter your name")
     };
   if (name) {
-    proceedToGame.innerHTML = "No thanks";
+    proceedToGame.innerHTML = "Yes please";
     header.innerHTML = `Hello ${name}, would you like to join <span class="brand"> So Solid Crew </span>?`;
     event.preventDefault();
     }
