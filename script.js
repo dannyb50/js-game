@@ -10,10 +10,6 @@
 //     };
 // });
 
-// COACHES QUESTION - WHEN USING THE EVENT LISTENER ABOVE, 
-// THE <A> HREF WOULDN'T WORK, SO HAD TO USE THE METHOD BELOW. 
-// WHY IS THAT?
-
 // function to add player name and ask a question when entered
 
 const handleClick = (event) => {
