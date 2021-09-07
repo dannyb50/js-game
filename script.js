@@ -127,7 +127,7 @@ button.addEventListener("click", (event) => {
       time.innerHTML === "21.7" ||
       time.innerHTML === "21.8" ||
       time.innerHTML === "21.9") {
-        subHeader.innerHTML = `<span class="brand">More like So Weak Crew.</span>`
+        subHeader.innerHTML = `<span class="brand">More like "So Weak Crew".</span>`
     } else {
       subHeader.innerHTML = `<span class="brand">Well, that was embarrassing.</span>`
     }
