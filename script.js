@@ -80,7 +80,7 @@ function resetTimer() {
 	button.innerHTML = "Start";
 }
 
-// function for when to displau the verse or timer, and start/stop/reset button display
+// function for when to display the verse or timer, and start/stop/reset button display
 
 button.addEventListener("click", (event) => {
 
